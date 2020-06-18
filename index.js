@@ -133,7 +133,7 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor extends Lambdasian {
-  constructor({attributes2}){
+  constructor(attributes2){
     super(attributes2);
     this.specialty = attributes2.specialty;
     this.favLanguage = attributes2.favLanguage;
@@ -142,8 +142,8 @@ class Instructor extends Lambdasian {
 demo(subject){
 return `Today we are learning about ${subject}`;
 }
-grade(student, subject){
-  return `${student.name} receives a perfect score on ${subject}`;
+grade(Student, subject){
+  return `${Student.name} receives a perfect score on ${subject}`;
 }
 }
 
@@ -163,20 +163,20 @@ grade(student, subject){
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student extends Lambdasian {
-  constructor({studentAttr}){
+  constructor(studentAttr){
     super(studentAttr);
     this.previousBackground = studentAttr.previousBackground;
     this.className = studentAttr.className;
-    this.favSubjects = studentAttr.favSubjects = [];
+    this.favSubjects = studentAttr.favSubjects;
   }
   listSubjects(){
     return `${this.favSubjects}`;
   }
   PRAssignment(subject){
-    return `${Student.name} has submitted a PR for ${subject}.`;
+    return `${this.name} has submitted a PR for ${subject}.`;
   }
   sprintChallenge(subject){
-    return `${Student.name} has begun sprint challenge on ${subject}.`;
+    return `${this.name} has begun sprint challenge on ${subject}.`;
   }
 }
 
@@ -194,7 +194,7 @@ class Student extends Lambdasian {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 class ProjectManager extends Instructor {
-  constructor({projectManagerAttr}){
+  constructor(projectManagerAttr){
     super(projectManagerAttr);
     this.gradClassName = projectManagerAttr.gradClassName;
     this.favInstructor = projectManagerAttr.favInstructor;
@@ -202,7 +202,7 @@ class ProjectManager extends Instructor {
   standUp(slackChannel){
     return `${this.name} announces to the ${slackChannel}, @channel study times!`
   }
-  debug(Student, subject){
+  debugsCode(Student, subject){
     return `${this.name} debugs ${Student.name}'s code on ${subject}`
   }
 }
