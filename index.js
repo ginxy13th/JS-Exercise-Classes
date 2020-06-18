@@ -168,6 +168,7 @@ class Student extends Lambdasian {
     this.previousBackground = studentAttr.previousBackground;
     this.className = studentAttr.className;
     this.favSubjects = studentAttr.favSubjects;
+    this.grade = studentAttr.grade
   }
   listSubjects(){
     return `${this.favSubjects}`;
@@ -177,6 +178,10 @@ class Student extends Lambdasian {
   }
   sprintChallenge(subject){
     return `${this.name} has begun sprint challenge on ${subject}.`;
+  }
+  grade(grade){
+    grade <= 100;
+    grade >= 1;
   }
 }
 
