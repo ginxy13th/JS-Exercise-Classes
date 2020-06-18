@@ -133,7 +133,7 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor extends Lambdasian {
-  constructor(attributes2){
+  constructor({attributes2}){
     super(attributes2);
     this.specialty = attributes2.specialty;
     this.favLanguage = attributes2.favLanguage;
@@ -162,8 +162,22 @@ grade(student, subject){
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-
+class Student extends Lambdasian {
+  constructor({studentAttr}){
+    super(studentAttr);
+    this.previousBackground = studentAttr.previousBackground;
+    this.className = studentAttr.className;
+    this.favSubjects = studentAttr.favSubjects = [];
+  }
+  listSubjects(){
+    return `${this.favSubjects}`;
+  }
+  PRAssignment(subject){
+    return `${Student.name} has submitted a PR for ${subject}.`;
+  }
+  sprintChallenge(subject){
+    return `${Student.name} has begun sprint challenge on ${subject}.`;
+  }
 }
 
 /*
@@ -179,8 +193,18 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor {
+  constructor({projectManagerAttr}){
+    super(projectManagerAttr);
+    this.gradClassName = projectManagerAttr.gradClassName;
+    this.favInstructor = projectManagerAttr.favInstructor;
+  }
+  standUp(slackChannel){
+    return `${this.name} announces to the ${slackChannel}, @channel study times!`
+  }
+  debug(Student, subject){
+    return `${this.name} debugs ${Student.name}'s code on ${subject}`
+  }
 }
 
 /*
